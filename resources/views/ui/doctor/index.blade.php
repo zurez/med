@@ -57,16 +57,26 @@
 </div>
 <div class="col-md-4">
 <h4 class="text">Patient Queue</h4>
-<hr>
-@foreach($patient as $p)
-	<a href="#" class="text" style="font-size:1.2em;">  {{$p->name}} </a> <a href="#" id="view" class="pat btn btn-success"> View</a> 
-@endforeach
+
+
+	<table class="table">
+		@foreach($patient as $p)
+			<tr>
+				<td><a href="#" class="text" style="font-size:1.2em;">  {{$p->name}} </a> </td>
+				<td>	<a href="#" id="view" data = "{{$p->id}}"class="pat btn btn-success"> View</a> </td>
+			</tr>
+		@endforeach
+	</table>
+
+	
 </div>
 <script type="text/javascript">
 	$(document).ready(
 		function(){
 			$('.pat').click(function(){
-						var url = "{{url('patient')}}"+"/1";
+				var id= $(this).attr('data');
+				// alert(id);
+						var url = "{{url('patient')}}"+"/"+id;
 				 $.ajax({
 			    url:url,  
 	    success:function(data) {
@@ -74,7 +84,7 @@
 	      $('#age').text(data.age);
 	      $('#ref_by').text(data.referred_by);
 	      $('#complaint').text(data.complaint);
-	      $('form').toggle();
+	      $('form').show();
 	    }
 			});
 	

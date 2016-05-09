@@ -1,10 +1,6 @@
 @extends('common.default')
 @section('content')
-<style type="text/css">
-	.text{
-		color: white;
-	}
-</style>
+
 <div class="col-md-8  description">
 	<h3 class="text">Add new patient</h3>
 	<hr>
@@ -40,10 +36,14 @@
 <div class="col-md-4">
 <h3 class="text">Recent Patients</h3>
   @if(isset($patient) and !is_null($patient))
+  <table class="table">
   @foreach($patient as $p)
-
-    <a href="#"> {{$p->name}}</a> <a href="{{$p->id}}" class="btn btn-primary">Add Bio</a>
+    <tr>
+      <td><a href="#"> {{$p->name}}</a></td>
+      <td><a href="{{$p->id}}" class="btn btn-primary">Add Bio</a></td>
+    </tr>
   @endforeach
+  </table>
   @endif
 </div>
 

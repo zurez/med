@@ -49,6 +49,7 @@ class ReceptionController extends Controller
         $a->phone= $request->phone;
         $a->referred_by= $request->ref_by;
         $a->save();
+        return redirect::back();
     }
 
     /**
