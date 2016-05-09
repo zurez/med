@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMedinfoTable extends Migration
+class CreateAppointmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,6 @@ class CreateMedinfoTable extends Migration
     public function up()
     {
         //
-            Schema::create('medinfo',function(Blueprint $table){
-            $table->increments('id');
-            $table->string('medname');
-            
-            
-        });
     }
 
     /**
@@ -29,6 +23,5 @@ class CreateMedinfoTable extends Migration
     public function down()
     {
         //
-        Schema::drop('medinfo');
     }
 }

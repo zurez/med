@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','PageController@index');
+
+Route::get('register/patient','ReceptionController@index');
+Route::post('register/patient','ReceptionController@store');
+
+Route::get('dr/patient','DrController@index');
+
+Route::get('patient/{id}','PatientController@ajaxpat');

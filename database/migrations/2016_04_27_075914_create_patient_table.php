@@ -14,8 +14,17 @@ class CreatePatientTable extends Migration
     {
         //
         Schema::create('patient',function(Blueprint $table){
-            $table->increment('id');
+            $table->increments('id');
+            $table->string('name');
+            $table->string('complaint');
+            $table->string('age');
+            $table->string('type');  //Old or new patient
+            $table->string('phone');
+            $table->string('referred_by');
             $table->string('address_id');
+            $table->string('patientbioinfo_id');
+            $table->timestamps();
+
 
         });
     }
@@ -28,5 +37,6 @@ class CreatePatientTable extends Migration
     public function down()
     {
         //
+        Schema::drop('patient');
     }
 }

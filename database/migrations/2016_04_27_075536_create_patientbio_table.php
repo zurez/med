@@ -15,13 +15,14 @@ class CreatePatientbioTable extends Migration
         //
             Schema::create('patientbio',function(Blueprint $table){
             $table->increments('id');
-            $table->string('age');
+            // $table->string('age');
             $table->string('gender');
             $table->string('bp');
             $table->string('weight');
             $table->string('height');
             $table->string('bloodgroup');
             $table->string('remarks');
+            $table->timestamps();
             
         });
     }
